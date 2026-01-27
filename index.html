@@ -109,6 +109,15 @@
                   <span>Code</span>
                   </a>
               </span>
+               <span class="link-block">
+                <a href="LINK_TO_GITHUB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
             </div>
           </div>
           
@@ -119,14 +128,30 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
+      <div class="columns is-centered">
+        <div class="column">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="./static/videos/phantom_cover.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="column">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="./static/videos/ex_vivo_cover.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="column">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="./static/videos/teaser.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
       <h2 class="subtitle has-text-centered">
-        Our <strong>Supervised MoE</strong> policy performing autonomous bowel grasping and retraction 
+        Our <strong>Supervised MoE</strong> policy performing autonomous bowel grasping and retraction
         using only stereo endoscopic images (phantom environment).
       </h2>
     </div>
@@ -134,7 +159,7 @@
 </section>
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -155,7 +180,7 @@
 </section>
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method Overview</h2>
@@ -174,34 +199,134 @@
 </section>
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     
     <h2 class="title is-3 has-text-centered">Experimental Results</h2>
 
     <div class="columns is-centered">
-      
-      <div class="column">
+      <div class="column is-half">
         <div class="content has-text-centered">
-          <h3 class="title is-4">Baseline (SmolVLA)</h3>
-          <p>Fails to reach target or maintain temporal coherence.</p>
-          <video id="replay-video" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/failure_baseline.mp4"
-                    type="video/mp4">
+          <h3 class="title is-4">SmolVLA</h3>
+          <p>Unsafe, pushes against the bowel</p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/smolvla.mp4" type="video/mp4">
           </video>
         </div>
       </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <h3 class="title is-4">Pi0.5</h3>
+          <p>Does not commit to a phase</p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/pi05.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
 
-      <div class="column">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <h3 class="title is-4">ACT</h3>
+          <p>Poor grasping, leading to slippage</p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/act.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-half">
         <div class="content has-text-centered">
           <h3 class="title is-4">Ours (ACT + MoE)</h3>
-          <p>Successfully identifies grasp site and maintains retraction.</p>
-          <video id="replay-video" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/success_ours.mp4"
-                    type="video/mp4">
+          <p>Successfully executes the task</p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/phantom_moe_indistribution.mp4" type="video/mp4">
           </video>
         </div>
       </div>
+    </div>
 
+    <!-- Out-of-Distribution Results -->
+    <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Out-of-Distribution Generalization</h3>
+    <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+      Our model generalizes to unseen scenarios without additional training.
+    </p>
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <p><strong>Unseen Bowel Segment</strong></p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/ood_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <p><strong>Different Lighting</strong></p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/ood_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <p><strong>Bowel Occlusion</strong></p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/ood_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <p><strong>Unseen Viewpoint</strong></p>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/ood_4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Domain Randomization: Viewpoint -->
+    <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Viewpoint Randomization</h3>
+    <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+      Retraining with randomized camera viewpoints further improves robustness to viewpoint variations.
+    </p>
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/rv_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/rv_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/rv_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/rv_4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
     </div>
 
     <div class="columns is-centered">
@@ -222,6 +347,23 @@
       </div>
     </div>
 
+    <!-- Preliminary In-Vivo Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Preliminary In-Vivo Results</h2>
+        
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/invivo_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/invivo_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
