@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Supervised Mixture-of-Experts for Surgical Grasping and Retraction using lightweight action transformers.">
-  <meta name="keywords" content="Surgical Robotics, Imitation Learning, Mixture of Experts, Da Vinci, ACT">
+  <meta name="keywords" content="Surgical Robotics, Imitation Learning, Mixture of Experts, ACT">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Supervised Mixture-of-Experts for Surgical Grasping and Retraction</title>
 
@@ -56,7 +56,7 @@
           
           <h1 class="title is-1 publication-title">Supervised Mixture-of-Experts for Surgical Grasping and Retraction</h1>
           
-          <div class="is-size-5 publication-authors">
+          <!--<div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="#">First Author Name</a><sup>1</sup>,</span>
             <span class="author-block">
@@ -64,12 +64,20 @@
             <span class="author-block">
               <a href="#">Third Author Name</a><sup>2</sup>
             </span>
-          </div>
 
-          <div class="is-size-5 publication-authors">
+                      <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University Name,</span>
             <span class="author-block"><sup>2</sup>Institution Name</span>
           </div>
+
+          </div>-->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Author Names Omitted for Anonymous Review
+            </span>
+          </div>
+
 
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -151,12 +159,13 @@
         </div>
       </div>
       <h2 class="subtitle has-text-centered">
-        Our <strong>Supervised MoE</strong> policy performing autonomous bowel grasping and retraction
-        using only stereo endoscopic images (phantom environment).
+        Our <strong>Supervised MoE</strong> policy performing autonomous surgical bowel grasping and retraction
+        using <strong>only stereo endoscopic camera feed</strong> as input.
       </h2>
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-widescreen">
@@ -168,10 +177,14 @@
             Imitation learning has achieved remarkable success in robotic manipulation, yet its application to surgical robotics remains challenging due to data scarcity, constrained workspaces, and the need for an exceptional level of safety and predictability.
           </p>
           <p>
-            We present a supervised <strong>Mixture-of-Experts (MoE)</strong> architecture designed for phase-structured surgical manipulation tasks. Unlike prior surgical robot learning approaches that rely on multi-camera setups or thousands of demonstrations, we show that a lightweight action decoder policy like Action Chunking Transformer (ACT) can learn complex, long-horizon manipulation from only <strong>150 demonstrations</strong> using solely stereo endoscopic images.
+            We present a supervised <strong>Mixture-of-Experts (MoE)</strong> architecture designed for phase-structured surgical manipulation tasks. Unlike prior surgical robot learning approaches that rely on multi-camera setups or thousands of demonstrations, we show that a lightweight action decoder policy like Action Chunking Transformer (ACT) can learn complex, long-horizon manipulation from only <strong>150 demonstrations</strong> using solely stereo endoscopic images, when equipped with our architecture.
           </p>
           <p>
-            We evaluate our approach on the collaborative surgical task of bowel grasping and retraction. We benchmark our method against state-of-the-art Vision-Language-Action (VLA) models and the standard ACT baseline. Our results show that adopting a Supervised MoE architecture significantly boosts performance, yielding higher success rates in-distribution and demonstrating superior robustness in out-of-distribution scenarios. Notably, it generalizes to unseen testing viewpoints and also transfers <strong>zero-shot to ex vivo porcine tissue</strong>.
+            We evaluate our approach on the collaborative surgical task of bowel grasping and retraction, where a robot assistant interprets visual cues from a human surgeon, executes targeted grasping on deformable tissue, and performs sustained retraction. 
+          </p>
+          <p>
+            We benchmark our method against state-of-the-art Vision-Language-Action (VLA) models and the standard ACT baseline. Our results show that <strong>generalist VLAs fail to acquire the task entirely</strong>, even under standard in-distribution conditions. Furthermore, while standard ACT achieves moderate success in-distribution, adopting Supervised MoE architecture <strong>significantly boosts its performance</strong>, yielding higher success rates in-distribution and demonstrating superior robustness in out-of-distribution scenarios, including novel grasp locations, reduced illumination, and partial occlusions.
+            Notably, <strong>generalizes to unseen testing viewpoints and also transfers zero-shot to ex vivo porcine tissue</strong>  without additional training, offering a promising pathway toward in vivo deployment. To support this statement, we present qualitative preliminary results of policy roll-outs during <strong>in vivo porcine surgery</strong>. These results demonstrate that supervised MoE architectures provide a data-efficient approach for learning multi-step dexterous manipulation in visually constrained environments. Code and dataset will be released upon acceptance.
           </p>
         </div>
       </div>
