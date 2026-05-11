@@ -423,7 +423,27 @@
         </h1>
 
         <div class="is-size-5 publication-authors">
-          Author names omitted for anonymous review
+          Lorenzo Mazza<sup>&dagger;*1,2,3</sup>,
+          Ariel Rodriguez<sup>&dagger;*1,2,3</sup>,
+          Rayan Younis<sup>4,5</sup>,
+          Martin Lelis<sup>1,2,3</sup>,
+          Ortrun Hellig<sup>4,5</sup>,
+          Chenpan Li<sup>1,2</sup>,
+          Sebastian Bodenstedt<sup>1,2,3,4</sup>,
+          Martin Wagner<sup>4,5</sup>,
+          Stefanie Speidel<sup>1,2,3,4</sup>
+        </div>
+        <div class="is-size-6 publication-authors">
+          <sup>&dagger;</sup>Equal contribution &nbsp;&nbsp; <sup>*</sup>Corresponding authors:
+          <a href="mailto:lorenzo.mazza@nct-dresden.de">lorenzo.mazza@nct-dresden.de</a>,
+          <a href="mailto:ariel.rodriguezjimenez@nct-dresden.de">ariel.rodriguezjimenez@nct-dresden.de</a>
+        </div>
+        <div class="is-size-7 publication-authors">
+          <sup>1</sup>Department of Translational Surgical Oncology, NCT/UCC Dresden &nbsp;
+          <sup>2</sup>National Center for Tumor Diseases (NCT), NCT/UCC Dresden &nbsp;
+          <sup>3</sup>Faculty of Computer Science, TUD Dresden University of Technology<br>
+          <sup>4</sup>The Center for Tactile Internet with Human-in-the-Loop (CeTI), TUD Dresden University of Technology &nbsp;
+          <sup>5</sup>Department of Visceral, Thoracic and Vascular Surgery, University Hospital Carl Gustav Carus, TUD Dresden University of Technology
         </div>
 
         <div class="publication-links">
@@ -499,17 +519,13 @@
         <div class="section-divider"></div>
         <div class="content has-text-justified">
           <p>
-            Imitation learning has achieved remarkable success in robotic manipulation, yet its application to surgical robotics remains challenging due to data scarcity, constrained workspaces, and the need for an exceptional level of safety and predictability.
+            Imitation learning has achieved remarkable success in robotic manipulation, yet its application to surgical robotics remains challenging due to data scarcity, constrained workspaces, and the need for an exceptional level of safety and predictability. We present a supervised <strong>Mixture-of-Experts (MoE)</strong> architecture designed for phase-structured surgical manipulation tasks, which can be added on top of any autonomous policy. Unlike prior surgical robot learning approaches that rely on multi-camera setups or thousands of demonstrations, we show that a lightweight action decoder policy like Action Chunking Transformer (ACT) can learn complex, long-horizon manipulation from <strong>less than 150 demonstrations</strong> using solely stereo endoscopic images, when equipped with our architecture. We evaluate our approach on the collaborative surgical task of bowel grasping and retraction, where a robot assistant interprets visual cues from a human surgeon, executes targeted grasping on deformable tissue, and performs sustained retraction.
           </p>
           <p>
-            We present a supervised <strong>Mixture-of-Experts (MoE)</strong> architecture designed for phase-structured surgical manipulation tasks. Unlike prior surgical robot learning approaches that rely on multi-camera setups or thousands of demonstrations, we show that a lightweight action decoder policy like Action Chunking Transformer (ACT) can learn complex, long-horizon manipulation from only <strong>150 demonstrations</strong> using solely stereo endoscopic images, when equipped with our architecture.
+            We benchmark our method against state-of-the-art Vision-Language-Action (VLA) models and the standard ACT baseline. Our results show that generalist VLAs fail to acquire the task entirely, even under standard in-distribution conditions. Furthermore, while standard ACT achieves moderate success in-distribution, adopting a supervised MoE architecture significantly boosts its performance, yielding higher success rates in-distribution and demonstrating superior robustness in out-of-distribution scenarios, including novel grasp locations, reduced illumination, and partial occlusions.
           </p>
           <p>
-            We evaluate our approach on the collaborative surgical task of bowel grasping and retraction, where a robot assistant interprets visual cues from a human surgeon, executes targeted grasping on deformable tissue, and performs sustained retraction.
-          </p>
-          <p>
-            We benchmark our method against state-of-the-art Vision-Language-Action (VLA) models and the standard ACT baseline. Our results show that <strong>generalist VLAs fail to acquire the task entirely</strong>, even under standard in-distribution conditions. Furthermore, while standard ACT achieves moderate success in-distribution, adopting the Supervised MoE architecture <strong>significantly boosts its performance</strong>, yielding higher success rates in-distribution and demonstrating superior robustness in out-of-distribution scenarios, including novel grasp locations, reduced illumination, and partial occlusions.
-            Notably, it <strong>generalizes to unseen testing viewpoints and also transfers zero-shot to ex vivo porcine tissue</strong> without additional training, offering a promising pathway toward in vivo deployment. To support this statement, we present qualitative preliminary results of policy roll-outs during <strong>in vivo porcine surgery</strong>.
+            Notably, it generalizes to unseen testing viewpoints and also transfers zero-shot to <em>ex vivo</em> porcine tissue without additional training, offering a promising pathway toward <em>in vivo</em> deployment. To support this statement, we present qualitative preliminary results of policy roll-outs during <em>in vivo</em> porcine surgery. These results demonstrate that supervised MoE architectures provide a data-efficient approach for learning multi-step dexterous manipulation in visually constrained environments. Code and dataset are available.
           </p>
         </div>
       </div>
@@ -522,11 +538,11 @@
   <div class="container is-max-desktop">
     <div class="stat-bar">
       <div class="stat-card">
-        <div class="stat-value">150</div>
-        <div class="stat-label">Demonstrations</div>
+        <div class="stat-value">120</div>
+        <div class="stat-label">Fixed-viewpoint demonstrations</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value">53M</div>
+        <div class="stat-value">53.3M</div>
         <div class="stat-label">Parameters (ACT+MoE)</div>
       </div>
       <div class="stat-card">
@@ -534,8 +550,8 @@
         <div class="stat-label">Zero-shot ex vivo transfer</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value">0</div>
-        <div class="stat-label">VLA task completions</div>
+        <div class="stat-value">0/20</div>
+        <div class="stat-label">VLA end-to-end completions</div>
       </div>
     </div>
   </div>
@@ -784,11 +800,14 @@
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <div class="section-divider"></div>
     <div class="bibtex-section">
-      <pre><code>@article{Anonymous2026SurgicalMoE,
-  author    = {Anonymous Authors},
-  title     = {Supervised Mixture-of-Experts for Surgical
-               Grasping and Retraction},
+      <pre><code>@article{mazza2026supervisedmoe,
+  author    = {Mazza, Lorenzo and Rodriguez, Ariel and Younis, Rayan and
+               Lelis, Martin and Hellig, Ortrun and Li, Chenpan and
+               Bodenstedt, Sebastian and Wagner, Martin and Speidel, Stefanie},
+  title     = {Supervised Mixture-of-Experts for Surgical Grasping and Retraction},
+  journal   = {arXiv preprint arXiv:2601.21971},
   year      = {2026},
+  url       = {https://arxiv.org/abs/2601.21971},
 }</code></pre>
     </div>
   </div>
